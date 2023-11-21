@@ -1,8 +1,8 @@
-import { BroadCategoryType } from '@/types/index'
+import { MenuType } from '@/types/index'
 import { Fragment } from 'react'
 
 type PropsData = {
-  data: Array<BroadCategoryType>,
+  data: Array<MenuType> | null,
 }
 
 const BroadCategoryGrid = (props: PropsData) => {
@@ -11,11 +11,11 @@ const BroadCategoryGrid = (props: PropsData) => {
       <p className="text-xl font-bold mt-10 mb-4">大分類</p>
       <div className='grid grid-cols-2 mt-5 ml-3 divide-y'>
         { 
-          props.data.map(item => {
+          props.data?.map(item => {
             return (
-              <Fragment key={ item.id.toString() }>
+              <Fragment key={ item.broadCategory.id.toString() }>
                 <div className='pt-3 pb-3'>
-                  { item.name }
+                  { item.broadCategory.name }
                 </div>
                 <button className="w-max h-max shadow-lg bg-red-500 shadow-red-500/50 text-white rounded px-2 py-1">削除</button>
               </Fragment>
