@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss'
+const { iconsPlugin, getIconCollections } = require("@egoist/tailwindcss-icons")
 
 const config: Config = {
   content: [
@@ -15,6 +16,12 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    iconsPlugin({
+      // Select the icon collections you want to use
+      // You can also ignore this option to automatically discover all icon collections you have installed
+      collections: getIconCollections(["mdi", "lucide"]),
+    }),
+  ],
 }
 export default config

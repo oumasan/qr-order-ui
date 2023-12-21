@@ -3,12 +3,16 @@ import { Fragment } from 'react'
 import SubCategoryAccordion from './SubCategoryAccordion'
 
 type PropsData = {
-  data: Array<MenuType>
+  data: Array<MenuType>,
+  onPostTrigger: Function,
+  onDeleteTrigger: Function,
 }
 
 const SubCategoryGrid = (props: PropsData) => {
 
   const toggleAccordion = (toggle: boolean) => !toggle
+  const handlePost = (data: any) => props.onPostTrigger(data)
+  const handleDelete = (id: Number) => props.onDeleteTrigger(id)
 
   return (
     <div>
@@ -18,7 +22,11 @@ const SubCategoryGrid = (props: PropsData) => {
           props.data.map(item => {
             return (
               <Fragment key={ item.broadCategory.id.toString()}>
-                <SubCategoryAccordion data={item} />
+                <SubCategoryAccordion 
+                  data={item} 
+                  onPostTrigger = { handlePost }
+                  onDeleteTrigger= { handleDelete }
+                />
               </Fragment>
             )
           })
