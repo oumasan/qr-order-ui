@@ -5,14 +5,23 @@ import { useState, useEffect } from 'react';
 import { getApi } from '@/api/api-call'
 import { MenuType } from '@/types/index';
 import CustomerMenu from '@/components/CustomerMenu'
+import { setId } from "@/store/CartStore";
+import { store } from '@/store/CartStore'
 
 const Customer = (
   { params }: { params: { id: string } },
 ) => {
-  const searchParams = useSearchParams();
-  const uniqueId = searchParams.get("id");
+
+  // ユニークID保持
+  const searchParams = useSearchParams()
+  useEffect(() => {  
+    const uniqueId = searchParams.get("id")
+    if (uniqueId) {
+      store.dispatch(setId(uniqueId))
+    }
+  });
+  
   const shopId = params.id
-  const baseUrl = 'http://192.168.10.109:9090/'
 
   // Menu
   const [menu, setMenu] = useState<Array<MenuType> | []>([])
@@ -21,7 +30,7 @@ const Customer = (
   // 初期情報取得
   useEffect(() => {
     const fetchData = async () => {
-      const res = await getApi(`${baseUrl}shops/${shopId}/category`)
+      const res = await getApi(`${process.env.apiBaseUrl}shops/${shopId}/category`)
       const data: Array<MenuType> = await res.json()
       setMenu(data)
     }

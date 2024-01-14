@@ -12,8 +12,6 @@ const CustomerMenu = (props: PropsData) => {
 
   const router = useRouter();
   const pathName = usePathname();
-  console.log(router)
-  console.log(pathName)
   const openMenuPage = (broadCategoryId: number) => router.push(`${pathName}/${broadCategoryId}`);
 
   return (
@@ -29,7 +27,7 @@ const CustomerMenu = (props: PropsData) => {
                     src={ NoImage } alt=''
                     className='h-28'
                   />
-                  <div className="h-10">
+                  <div className="h-10 flex">
                     <div className="font-bold text-xl m-auto h-fit w-fit">{ item.broadCategory.name }</div>
                   </div>
                 </div>

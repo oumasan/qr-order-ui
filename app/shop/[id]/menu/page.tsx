@@ -1,16 +1,17 @@
 "use client"
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import BroadCategoryGrid from '@/components/BroadCategoryGrid';
 import SubCategoryGrid from '@/components/SubCategoryGrid';
 import { MenuType } from '@/types/index';
-import { LoginContext } from '@/store';
 import { getApi, postApi, deleteApi } from '@/api/api-call'
+import { useSelector } from 'react-redux'
+import { ShopState } from '@/store/ShopStore'
 
 const Menu = () => {
   
-  const loginData = useContext(LoginContext)
-  const shopId = loginData.id.toString()
-  const baseUrl = 'http://localhost:9090/'
+  const shop = useSelector((state: ShopState) => state.value);
+  const shopId = shop.id.toString()
+  const baseUrl = process.env.apiBaseUrl
   // Menu
   const [menu, setMenu] = useState<Array<MenuType> | []>([])
   const [trigger, setTrigger] = useState(false);

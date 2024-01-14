@@ -53,7 +53,7 @@ const SubCategoryAccordion = (props: PropsData) => {
                       />
                     </div>
                     <div className='pt-3 pb-3 flex'>
-                      <div className='mt-auto mb-auto'>{ `${item.price}円` }</div>
+                      <div className='mt-auto mb-auto'>{ `${item.price.toLocaleString()}円` }</div>
                     </div>
                     <button type='button' onClick={() => handleDelete(item.id)} className='w-max h-max mt-auto mb-auto shadow-lg bg-red-500 hover:bg-red-300 shadow-red-500/50 text-white rounded px-2 py-1'>削除</button>
                   </Fragment>
