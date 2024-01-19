@@ -69,7 +69,7 @@ const SubCategoryAccordion = (props: PropsData) => {
               />
               {errors.name && <div className='text-red-500'>入力が必須の項目です</div>}
             </div>
-            <button type='button' className='w-max h-max mt-auto mb-auto shadow-lg bg-blue-500 hover:bg-blue-300 shadow-blue-500/50 text-white rounded px-2 py-1'>アップロード</button>
+            <button type='button' className='w-max h-max mt-auto mb-auto shadow-lg bg-blue-500 hover:bg-blue-300 shadow-blue-500/50 text-white rounded px-2 py-1'>アップロード：未実装</button>
             <div className='pt-3 pb-3'>
               <input type='text' placeholder='値段' className='block border-2 border-indigo-500/75 w-4/5 px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform rounded-lg text-neutral-600 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300'
                 {...register('price', { required: true, pattern: /^([1-9]\d*|0)$/ })}

@@ -23,7 +23,7 @@ export default function RootLayout({
             <ul className="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
                 <li className='grid grid-rows-2 w-auto m-auto' onClick={goToCategory}>
                   <span className="i-lucide-layout-grid w-7 h-7 m-auto"></span>
-                  <a href="#" className="hover:underline md:me-6 m-auto">カテゴリ</a>
+                  <a href="#" className="hover:underline md:me-6 m-auto">大分類</a>
                 </li>
                 <li className='grid grid-rows-2 w-auto m-auto' onClick={goToCart}>
                   <span className="i-lucide-shopping-cart w-7 h-7 m-auto"></span>

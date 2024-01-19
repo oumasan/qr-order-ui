@@ -16,7 +16,7 @@ const CustomerMenu = (props: PropsData) => {
 
   return (
     <div>
-      <h2 className='text-center text-4xl font-extrabold mb-4'>カテゴリ</h2>
+      <h2 className='text-center text-4xl font-extrabold mb-4'>大分類</h2>
       <div className='m-5 grid grid-cols-2 gap-2'>
         {
           props.data?.map(item => {
